@@ -211,7 +211,7 @@
  <img src="/Toyota-Logo-2010-2019.png">
  </div>
             <div class="car_title">
-                <div>通知 辽D·UZ698 车主挪车</div>
+                <div>辽D·UZ698</div>
 
                 <div></div>
             </div>
@@ -266,31 +266,31 @@
                         button.textContent = `冷却中 (${cooldown}s)`;
                     } else {
                         clearInterval(interval);
-                        button.disabled = false;
-                        button.classList.remove('disabled');
-                        button.textContent = "通知车主挪车";
+                        button。disabled = false;
+                        button。classList。remove('disabled');
+                        button。textContent = "通知车主挪车";
                     }
                 }, 1000);
             }
  
             function notifyOwner() {
-                const messageInput = document.getElementById('messageInput');
-                fetch("https://wxpusher.zjiecode.com/api/send/message", {
-                        method: "POST",
+                const messageInput = document。getElementById('messageInput');
+                fetch("https://wxpusher.zjiecode.com/api/send/message"， {
+                        method: "POST"，
                         headers: {
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
                             //Token
-                            appToken: "AT_GKKAzLmXIViG5zeulL2d9fjlBPILCYPM",
+                            appToken: "AT_GKKAzLmXIViG5zeulL2d9fjlBPILCYPM"，
                             content: messageInput.value.trim(),
                             contentType: 1,
                             //通知对象的UID
                             uids: ["UID_aisPtlQTolwLwciT0V9tsYf00k8d"]
                         })
                     })
-                    .then(response => response.json())
-                    .then(data => {
+                    。键，然后(response => response.json())
+                    。键，然后(data => {
                         if (data.code === 1000) {
                             alert("通知已发送！");
                              // 这里启动30秒的冷却
@@ -299,8 +299,8 @@
                             alert("发送失败，请稍后重试。");
                         }
                     })
-                    .catch(error => {
-                        console.error("Error sending notification:", error);
+                    。catch(error => {
+                        console。error("Error sending notification:"， error);
                         alert("发送失败，请检查网络连接。");
                     });
             }
@@ -311,15 +311,15 @@
             }
             function updateCharCount() {
                 const messageInput = document.getElementById('messageInput');
-                const charCount = document.getElementById('charCount');
-                const notifyBtn = document.getElementsByClassName('notify-btn');
+                const charCount = document。getElementById('charCount');
+                const notifyBtn = document。getElementsByClassName('notify-btn');
                 const currentLength = messageInput.value.length;
  
-                charCount.textContent = currentLength + '/200';
+                charCount。textContent = currentLength + '/200';
                 if (currentLength > 200) {
                     charCount.style.color = '#dc3545';
                 } else {
-                    charCount.style.color = '#666';
+                    charCount。style.color = '#666';
                 }
             }
         </script>
